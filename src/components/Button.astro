@@ -1,0 +1,30 @@
+---
+interface Props {
+  id: string;
+  color: string;
+  // disabled: boolean;
+  hoverColor: string;
+  // classes: string;
+  // icon: string; // proximamente
+}
+
+const {
+  // disabled,  classes, type, icon,
+  color,
+  hoverColor,
+  id,
+  ...rest
+} = Astro.props;
+// const hoverClass = disabled ? "disabled" : "hover";
+// const classesWithHover = hoverClass ? `${classes} ${hoverClass}` : classes;
+const buttonClass = `bg-[${color}] hover:bg-[${hoverColor}]`;
+---
+
+<a
+  id={id}
+  {...rest}
+  class={`${buttonClass} cursor-pointer md:text-[14px] text-[10px] shadow-sm px-2 md:px-7 py-2 md:py-4 rounded-md transition duration-300 ease-in-out`}
+>
+  <!-- {icon && <i class={icon} />} -->
+  <slot />
+</a>
