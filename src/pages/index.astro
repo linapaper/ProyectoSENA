@@ -1,21 +1,12 @@
 ---
-import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
+import Profits from "../components/Profits.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="1nLines">
 	<main>
 		<Hero />
-		<Button id="bnt-prueba" color="#C188FF" hoverColor="#CACACA">Holaaaaaa</Button>
+		<Profits />
 	</main>
 </Layout>
-
-<!-- Prueba de como sería el onClick de un boton, que asco no? xd -->
-<script>
-	const $button = document.querySelector("#bnt-prueba");
-
-	$button?.addEventListener("click", async (e) => {
-		alert("Holaaaaaa");
-	});
-</script>
