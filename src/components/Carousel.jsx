@@ -27,25 +27,25 @@ const Carousel = () => {
       >
         <SwiperSlide>
           <div className="h-[200px] shadow-md my-10 flex flex-col space-y-3  px-5 justify-center items-center">
-            <img src="../../public/assets/img/webp/creacion-producto.webp" alt="img creacion de producto" />
+            <img src="/assets/img/webp/creacion-producto.webp" alt="img creacion de producto" />
             <p className="text-center text-[16px]">Creación de productos digitales</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="h-[200px] shadow-md my-10 flex flex-col space-y-3  px-5 justify-center items-center">
-            <img src="../../public/assets/img/webp/mantenimiento.webp" alt="img mantenimiento" />
+            <img src="/assets/img/webp/mantenimiento.webp" alt="img mantenimiento" />
             <p className="text-center text-[16px]">Mantenimiento o reconstrucción de software</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="h-[200px] shadow-md my-10 flex flex-col space-y-3 px-5 justify-center items-center">
-            <img src="../../public/assets/img/webp/inteligencia-de-negocios.webp" alt="img inteligencia de negocios" />
+            <img src="/assets/img/webp/inteligencia-de-negocios.webp" alt="img inteligencia de negocios" />
             <p className="text-center text-[16px]">Consultoría en Inteligencia de Negocios con datos</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="h-[200px] shadow-md my-10 flex flex-col space-y-3  px-5 justify-center items-center">
-            <img src="../../public/assets/img/webp/posicionamiento.webp" alt="img posicionamiento" />
+            <img src="/assets/img/webp/posicionamiento.webp" alt="img posicionamiento" />
             <p className="text-center text-[16px]">Posicionamiento web</p>
           </div>
         </SwiperSlide>
