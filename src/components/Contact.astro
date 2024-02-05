@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import contact from "../../public/assets/img/webp/contact.webp";
+import consulting from "../../public/assets/img/webp/consulting.webp";
+import experience from "../../public/assets/img/webp/experience.webp";
+---
+
+<div
+  class="mx-auto flex flex-col justify-start w-full mt-[40px] md:my-[73px] md:max-w-screen-xl px-5 space-y-3"
+>
+  <h4 class="text-[#A9A9A9] md:text-[20px] font-[500]">
+    ¿DESEAS MÁS INFORMACIÓN?
+  </h4>
+  <div
+    class="bg-white py-5 px-5 md:px-20 justify-between items-center flex max-h-[1200px]"
+  >
+    <div class="w-1/3">
+      <Image src={contact} alt={"Contacta a 1nLines"} class={"w-[430px]"} />
+    </div>
+    <div class="w-2/3">
+      <div class="w-full flex flex-col space-y-5">
+        <button
+          id="btn-contactate-1nlines"
+          class="md:text-[36px] text-[28px] bg-[#8647EA] hover:bg-[#753bd1] font-semibold shadow-sm text-right text-white px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
+        >
+          Contáctate con nosotros
+        </>
+        <button
+          id="btn-dejanos-contactarte"
+          class="md:text-[36px] text-[28px] bg-[#FAFAF7] hover:bg-[#dedede] font-semibold text-[#8647EA] shadow-sm text-left px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
+        >
+          Déjanos contactarte
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const $buttonContactate = document.querySelector("#btn-contactate-1nlines");
+  const $buttonPdf = document.querySelector("#btn-dejanos-contactarte");
+
+  $buttonContactate?.addEventListener("click", async (e) => {
+    alert("Modal de contactate con nosotros");
+  });
+
+  $buttonPdf?.addEventListener("click", async (e) => {
+    alert("Modal de dejanos contactarte");
+  });
+</script>
