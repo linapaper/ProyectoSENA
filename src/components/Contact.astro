@@ -115,17 +115,18 @@ import contact from "../../public/assets/img/webp/contact.webp";
 </style>
 
 <script>
-  const $buttonContactate = document.querySelector("#close-modal-contacto");
+  const $closeModalConstacto = document.querySelector("#close-modal-contacto");
   const $buttonDejanosContactarte = document.querySelector(
     "#btn-dejanos-contactarte",
   );
 
-  $buttonContactate?.addEventListener("click", async (_) => {
+  $closeModalConstacto?.addEventListener("click", async (_) => {
     const contactoElement = document.getElementById("id-contacto");
     const bodyElement = document.getElementById("body-page");
     if (contactoElement && bodyElement) {
       contactoElement.classList.remove("flex");
       contactoElement.classList.add("hidden");
+
       bodyElement.classList.add("overflow-auto");
       bodyElement.classList.remove("overflow-hidden");
     } else {

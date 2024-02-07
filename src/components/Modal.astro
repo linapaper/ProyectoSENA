@@ -165,7 +165,6 @@ import imgContact from "../../public/assets/img/webp/img_contact.webp";
 </div>
 
 <script>
-
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
 
@@ -189,8 +188,15 @@ import imgContact from "../../public/assets/img/webp/img_contact.webp";
 
         // Agregar la clase "hidden" al elemento con id "id-contacto"
         const contactoElement = document.getElementById("id-contacto");
-        if (contactoElement) {
+        const bodyElement = document.getElementById("body-page");
+        if (contactoElement && bodyElement) {
+          contactoElement.classList.remove("flex");
           contactoElement.classList.add("hidden");
+
+          bodyElement.classList.remove("overflow-hidden");
+          bodyElement.classList.add("overflow-auto");
+
+          alert("Mensaje enviado correctamente - simulación de aviso")
         } else {
           console.error("Error al obtener el elemento con id 'id-contacto'");
         }
