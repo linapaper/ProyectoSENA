@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -8,10 +8,29 @@ import 'swiper/css/pagination';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 const Carousel = () => {
+
+  const [deviceType, setDeviceType] = useState(null);
+
+  useEffect(() => {
+    const detectDevice = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+      const isMobile = mobileKeywords.some(keyword => userAgent.includes(keyword));
+      setDeviceType(isMobile ? 2 : 3); // Asignar 2 para dispositivos móviles y 3 para PC
+    };
+
+    detectDevice();
+
+    // Limpiar el listener al desmontar el componente
+    return () => {
+      // No es necesario limpiar nada en este caso
+    };
+  }, []);
+
   return (
     <div className="h-[200px]">
       <Swiper
-        slidesPerView={3}
+        slidesPerView={deviceType}
         spaceBetween={30}
         loop={true}
         pagination={{
