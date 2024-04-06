@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import logo1nLines from "../../public/assets/img/webp/logo_inlines.webp";
 import imgHero from "../../public/assets/img/webp/img_hero.webp";
-import Button from "./Button.astro";
+
+const catalogUri = import.meta.env.PUBLIC_CATALOG_FILE_URI;
 ---
 
 <div
@@ -46,7 +47,7 @@ import Button from "./Button.astro";
           </a>
           <a
             class="md:text-[14px] text-[10px] bg-[#D9D9D9] hover:bg-[#CACACA] shadow-sm text-black px-2 md:px-7 py-2 md:py-4 rounded-md transition duration-300 ease-in-out text-center"
-            href="https://ridaa.unq.edu.ar/bitstream/handle/20.500.11807/3747/SocialesYVirtuales_2019_n6_articulos6_Ibaniez.pdf?sequence=1" download
+            href={catalogUri}
             target="_blank"
           >
             VER BROCHURE
