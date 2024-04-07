@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import contact from "../../public/assets/img/webp/contact.webp";
+
+const contactUri = import.meta.env.PUBLIC_WHATSAPP_CONTACT_URI;
 ---
 
 <div
@@ -31,7 +33,7 @@ import contact from "../../public/assets/img/webp/contact.webp";
     <div class="w-full md:w-2/3">
       <div class="w-full flex flex-col space-y-5">
         <a
-          href="https://api.whatsapp.com/send?phone=573249804916&text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Inlines"
+          href={contactUri}
           target="_blank"
           class="md:text-[36px] text-[18px] bg-[#8647EA] hover:bg-[#753bd1] font-semibold shadow-sm text-right text-white px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
         >

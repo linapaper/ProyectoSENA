@@ -2,6 +2,9 @@
 //import { Image } from "astro:assets";
 //import contact from "../../public/assets/img/webp/contact.webp";
 import Carousel from "./Carousel";
+import Button from './Button.astro';
+
+const contactUri = import.meta.env.PUBLIC_WHATSAPP_CONTACT_URI;
 ---
 
 <div
@@ -24,14 +27,12 @@ import Carousel from "./Carousel";
           Si lo que estás buscando es otro tipo de servicio, y este está
           relacionado con software, no dudes en contactarnos.
         </p>
-        <a
-          href="https://api.whatsapp.com/send?phone=573249804916&text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Inlines"
-          target="_blank"
-          class="md:text-[14px] text-[10px]
-             bg-[#C188FF] hover:bg-[#B983F3] shadow-sm text-white px-2 md:px-7 py-2 md:py-4 rounded-md transition duration-300 ease-in-out"
-        >
-          CONTACTAR SERVICIO
-        </a>
+        <Button
+            href={contactUri}
+            content="CONTACTAR SERVICIO"
+            type="primary"
+          >
+          </Button>
       </div>
     </div>
     <div class="w-full md:w-2/3 flex flex-col justify-center"><Carousel client:load /></div>
