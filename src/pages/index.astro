@@ -6,7 +6,8 @@ import Footer from "../components/Footer.astro";
 import Contact from "../components/Contact.astro";
 import Profits from "../components/Profits.astro";
 import Portfolio from "../components/Portfolio.astro";
-import Modal from "../components/Modal.astro";
+import ModalContactate from "../components/ModalContactate.astro";
+import ModalDejanos from "../components/ModalDejanos.astro";
 ---
 
 <Layout title="Inlines SAS">
@@ -17,6 +18,7 @@ import Modal from "../components/Modal.astro";
 		<Contact />
 		<Stack />
 		<Footer />
-		<Modal id="id-contacto" />
+		<ModalContactate id="id-contactate-con-nosotros" idClose="id-close-contactate"/>
+		<ModalDejanos id="id-dejanos-contactarte" idClose="id-dejanos"/>
 	</main>
 </Layout>

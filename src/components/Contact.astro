@@ -30,13 +30,12 @@ import contact from "../../public/assets/img/webp/contact.webp";
     </div>
     <div class="w-full md:w-2/3">
       <div class="w-full flex flex-col space-y-5">
-        <a
-          href="https://api.whatsapp.com/send?phone=573249804916&text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Inlines"
-          target="_blank"
+        <button
+          id="btn-contactate-con-nosotros"
           class="md:text-[36px] text-[18px] bg-[#8647EA] hover:bg-[#753bd1] font-semibold shadow-sm text-right text-white px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
         >
           Contáctate con nosotros
-        </a>
+        </button>
         <button
           id="btn-dejanos-contactarte"
           class="md:text-[36px] text-[18px] bg-[#FAFAF7] hover:bg-[#dedede] font-semibold text-[#8647EA] shadow-sm text-left px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
@@ -115,13 +114,18 @@ import contact from "../../public/assets/img/webp/contact.webp";
 </style>
 
 <script>
-  const $closeModalConstacto = document.querySelector("#close-modal-contacto");
+  const $closeModalConstacto = document.querySelector("#id-close-contactate");
+  const $closeModalDejanos = document.querySelector("#id-dejanos");
+
+  const $buttonContactateConNosotros = document.querySelector(
+    "#btn-contactate-con-nosotros",
+  );
   const $buttonDejanosContactarte = document.querySelector(
     "#btn-dejanos-contactarte",
   );
 
   $closeModalConstacto?.addEventListener("click", async (_) => {
-    const contactoElement = document.getElementById("id-contacto");
+    const contactoElement = document.getElementById("id-contactate-con-nosotros");
     const bodyElement = document.getElementById("body-page");
     if (contactoElement && bodyElement) {
       contactoElement.classList.remove("flex");
@@ -134,8 +138,40 @@ import contact from "../../public/assets/img/webp/contact.webp";
     }
   });
 
+  $closeModalDejanos?.addEventListener("click", async (_) => {
+    const contactoElement = document.getElementById("id-dejanos-contactarte");
+    const bodyElement = document.getElementById("body-page");
+    if (contactoElement && bodyElement) {
+      contactoElement.classList.remove("flex");
+      contactoElement.classList.add("hidden");
+
+      bodyElement.classList.add("overflow-auto");
+      bodyElement.classList.remove("overflow-hidden");
+    } else {
+      console.error("Error al obtener el elemento con id 'id-contacto'");
+    }
+  });
+
+  $buttonContactateConNosotros?.addEventListener("click", async (_) => {
+    const contactoElement = document.getElementById(
+      "id-contactate-con-nosotros",
+    );
+    const bodyElement = document.getElementById("body-page");
+    if (contactoElement && bodyElement) {
+      contactoElement.classList.add("flex");
+      contactoElement.classList.remove("hidden");
+
+      bodyElement.classList.add("overflow-hidden");
+      bodyElement.classList.remove("overflow-auto");
+    } else {
+      console.error(
+        "Error al obtener el elemento con id 'id-contactate-con-nosotros'",
+      );
+    }
+  });
+
   $buttonDejanosContactarte?.addEventListener("click", async (_) => {
-    const contactoElement = document.getElementById("id-contacto");
+    const contactoElement = document.getElementById("id-dejanos-contactarte");
     const bodyElement = document.getElementById("body-page");
     if (contactoElement && bodyElement) {
       contactoElement.classList.add("flex");

@@ -2,9 +2,10 @@
 import { Image, imageConfig } from "astro:assets";
 interface Props {
   id: string;
+  idClose: string;
 }
 
-const { id } = Astro.props;
+const { id, idClose } = Astro.props;
 
 import imgContact from "../../public/assets/img/webp/img_contact.webp";
 ---
@@ -23,7 +24,7 @@ import imgContact from "../../public/assets/img/webp/img_contact.webp";
           type="button"
           class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
           data-modal-toggle="crud-modal"
-          id="close-modal-contacto"
+          id={idClose}
         >
           <svg
             class="w-3 h-3"
@@ -196,7 +197,7 @@ import imgContact from "../../public/assets/img/webp/img_contact.webp";
           bodyElement.classList.remove("overflow-hidden");
           bodyElement.classList.add("overflow-auto");
 
-          alert("Mensaje enviado correctamente - simulación de aviso")
+          alert("Mensaje enviado correctamente - simulación de aviso");
         } else {
           console.error("Error al obtener el elemento con id 'id-contacto'");
         }
