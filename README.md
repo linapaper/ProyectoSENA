@@ -1,3 +1,15 @@
+# Framework proincipal de trabajo implementado : ASTRO 
+
+
+es el framework web para construir sitios web orientados al contenido, como blogs, marketing y comercio electrónico. Astro es conocido por ser pionero en una nueva arquitectura frontend para reducir la sobrecarga y complejidad de JavaScript en comparación con otros frameworks.
+
+La sintaxis usada dentro de este entorno de trabajo pertenece a React.js para las funcionalidades.
+
+# Framework para facilitar el diseño : Tailwind
+
+Tailwind CSS es un framework de utility-first CSS, es decir, proporciona clases de utilidad que permiten construir interfaces de usuario de manera rápida y altamente personalizable. A diferencia de otros frameworks como Bootstrap, que ofrecen componentes predefinidos, Tailwind da control sobre los estilos mediante clases que aplican propiedades CSS individuales o grupos de ellas.
+
+
 # Astro Starter Kit: Basics
 
 ```sh
