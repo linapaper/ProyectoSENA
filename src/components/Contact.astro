@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets";
+import contact from "../../public/assets/img/webp/contact.webp";
+
+const contactUri = import.meta.env.PUBLIC_WHATSAPP_CONTACT_URI;
+---
+
+<div
+  class="mx-auto flex flex-col justify-start w-full mt-[40px] md:my-[73px] md:max-w-screen-xl px-5 space-y-3"
+>
+  <h4 class="text-[#A9A9A9] md:text-[20px] font-[500]">
+    ¿DESEAS MÁS INFORMACIÓN?
+  </h4>
+  <div
+    class="relative bg-white py-5 px-5 md:px-20 justify-between items-center flex flex-col md:flex-row max-h-[1200px]"
+  >
+    <div class="square-box">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="w-full md:w-1/3 justify-center hidden md:flex">
+      <Image
+        src={contact}
+        alt={"Contacta a 1nLines"}
+        class={"w-[150px] md:w-[430px]"}
+      />
+    </div>
+    <div class="w-full md:w-2/3">
+      <div class="w-full flex flex-col space-y-5">
+        <a
+          href={contactUri}
+          target="_blank"
+          class="md:text-[36px] text-[18px] bg-[#8647EA] hover:bg-[#753bd1] font-semibold shadow-sm text-right text-white px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
+        >
+          Contáctate con nosotros
+        </a>
+        <button
+          id="btn-dejanos-contactarte"
+          class="md:text-[36px] text-[18px] bg-[#FAFAF7] hover:bg-[#dedede] font-semibold text-[#8647EA] shadow-sm text-left px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
+        >
+          Déjanos contactarte
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .square-box div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 5px solid #b983f3;
+    border-radius: 35px;
+    opacity: 0; /* Inicialmente invisible */
+  }
+
+  .square-box div:nth-child(1) {
+    top: 12%;
+    left: 42%;
+    animation: animate 10s linear infinite;
+  }
+
+  .square-box div:nth-child(2) {
+    top: 70%;
+    left: 50%;
+    animation: animate 7s linear infinite;
+  }
+
+  .square-box div:nth-child(4) {
+    top: 20%;
+    left: 60%;
+    animation: animate 10s linear infinite;
+  }
+
+  .square-box div:nth-child(3) {
+    top: 17%;
+    left: 6%;
+    animation: animate 9s linear infinite;
+  }
+
+  .square-box div:nth-child(5) {
+    top: 88%;
+    left: 10%;
+    animation: animate 6s linear infinite;
+  }
+
+  .square-box div:nth-child(6) {
+    top: 80%;
+    left: 70%;
+    animation: animate 12s linear infinite;
+  }
+
+  .square-box div:nth-child(7) {
+    top: 60%;
+    left: 80%;
+    animation: animate 15s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      -webkit-transform: scale(0) translateY(0) rotate(0);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: scale(1.3) translateY(-90px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const $closeModalConstacto = document.querySelector("#close-modal-contacto");
+  const $buttonDejanosContactarte = document.querySelector(
+    "#btn-dejanos-contactarte",
+  );
+
+  $closeModalConstacto?.addEventListener("click", async (_) => {
+    const contactoElement = document.getElementById("id-contacto");
+    const bodyElement = document.getElementById("body-page");
+    if (contactoElement && bodyElement) {
+      contactoElement.classList.remove("flex");
+      contactoElement.classList.add("hidden");
+
+      bodyElement.classList.add("overflow-auto");
+      bodyElement.classList.remove("overflow-hidden");
+    } else {
+      console.error("Error al obtener el elemento con id 'id-contacto'");
+    }
+  });
+
+  $buttonDejanosContactarte?.addEventListener("click", async (_) => {
+    const contactoElement = document.getElementById("id-contacto");
+    const bodyElement = document.getElementById("body-page");
+    if (contactoElement && bodyElement) {
+      contactoElement.classList.add("flex");
+      contactoElement.classList.remove("hidden");
+
+      bodyElement.classList.add("overflow-hidden");
+      bodyElement.classList.remove("overflow-auto");
+    } else {
+      console.error("Error al obtener el elemento con id 'id-contacto'");
+    }
+  });
+</script>

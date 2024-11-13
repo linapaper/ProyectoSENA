@@ -1,0 +1,39 @@
+---
+interface Props {
+  id?: string;
+  type: 'primary' | 'secondary';
+  content: string;
+  href?: string;
+  target?: '_blank' |'_parent' | '_self' | '_top';
+  // classes: string;
+  // icon: string; // proximamente
+  // disabled: boolean;
+}
+
+const {
+  id,
+  type,
+  content,
+  href,
+  target
+} = Astro.props;
+// const hoverClass = disabled ? "disabled" : "hover";
+// const classesWithHover = hoverClass ? `${classes} ${hoverClass}` : classes;
+
+const buttonClassByType = {
+  primary: 'md:text-[14px] text-[10px] bg-[#C188FF] hover:bg-[#B983F3] shadow-sm text-center text-white px-2 md:px-7 py-2 md:py-4 rounded-md transition duration-300 ease-in-out',
+  secondary: 'md:text-[14px] text-[10px] bg-[#D9D9D9] hover:bg-[#CACACA] shadow-sm text-black px-2 md:px-7 py-2 md:py-4 rounded-md transition duration-300 ease-in-out text-center'
+};
+
+---
+{
+  href &&
+    <a
+      id={id ?? 'defaultButton'}
+      class={ buttonClassByType[type] ?? buttonClassByType.primary }
+      href={href}
+      target={target ?? '_blank'}
+    >
+      {content}
+    </a>
+}
