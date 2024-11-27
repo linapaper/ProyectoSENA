@@ -1,51 +1,164 @@
 ---
 import { Image } from "astro:assets";
-import flutterImg from "../../public/assets/img/webp/flutterImg.webp";
-import jsFrmImg from "../../public/assets/img/webp/jsFrmImg.webp";
-import pythonImg from "../../public/assets/img/webp/pythonImg.webp";
-import springBootImg from "../../public/assets/img/webp/springBootImg.webp";
+import angularImg from "../../public/assets/img/png/angular.png";
+import astroImg from "../../public/assets/img/png/astro.png";
+import bigqueryImg from "../../public/assets/img/png/bigquery.png";
+import flutterImg from "../../public/assets/img/png/flutter.png";
+import nextjsImg from "../../public/assets/img/png/nextjs.png";
+import reactImg from "../../public/assets/img/png/react.png";
+import wordpressImg from "../../public/assets/img/png/wordpress.png";
 ---
 
 <div
-  class="mx-auto flex flex-col justify-start w-full mt-[40px] md:my-[73px] md:max-w-screen-xl px-5 space-y-5 md:space-y-10"
+  class="mx-auto w-full mt-[40px] md:my-[73px] md:max-w-screen-xl px-5 space-y-5 md:space-y-10"
 >
   <h4 class="text-center text-[#A9A9A9] md:text-[20px] font-[500]">
     ALGO DE NUESTRO STACK
   </h4>
-  <div
-    class="mx-auto flex flex-col justify-start w-full max-w-screen-xl mt-5 md:my-10 px-2 md:px-5 space-y-5 md:space-y-10"
-  >
+
+  <div class="carousel-container overflow-hidden relative">
     <div
-      class="flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0"
+      class="carousel-track flex transition-transform duration-500 ease-in-out"
     >
-      <div class="max-w-[250px] md:w-[251px]">
+      <!-- Grupo original de imágenes -->
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={flutterImg} alt="Flutter" class="mx-auto h-[50px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={astroImg} alt="Astro" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={angularImg} alt="Angular" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
         <Image
-          src={flutterImg}
-          alt="Flutter"
-          class="mx-auto max-h-[70px]  h-auto"
+          src={bigqueryImg}
+          alt="BigQuery"
+          class="mx-auto h-[70px] w-auto"
         />
       </div>
-      <div class="max-w-[150px] md:w-[230px]">
+      <div class="carousel-item min-w-[200px] px-4">
         <Image
-          src={springBootImg}
-          alt="Spring Boot"
-          class="mx-auto max-h-[70px] h-auto"
+          src={wordpressImg}
+          alt="WordPress"
+          class="mx-auto h-[70px] w-auto"
         />
       </div>
-      <div class="max-w-[250px] md:w-[476px]">
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={nextjsImg} alt="Next.js" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={reactImg} alt="React" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <!-- Duplicado completo del grupo de imágenes -->
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={flutterImg} alt="Flutter" class="mx-auto h-[50px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={astroImg} alt="Astro" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={angularImg} alt="Angular" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
         <Image
-          src={jsFrmImg}
-          alt="JS Frameworks"
-          class="mx-auto max-h-[100px] h-auto"
+          src={bigqueryImg}
+          alt="BigQuery"
+          class="mx-auto h-[70px] w-auto"
         />
       </div>
-      <div class="max-w-[150px] md:w-[210px]">
+      <div class="carousel-item min-w-[200px] px-4">
         <Image
-          src={pythonImg}
-          alt="Python"
-          class="mx-auto max-h-[120px] h-auto"
+          src={wordpressImg}
+          alt="WordPress"
+          class="mx-auto h-[70px] w-auto"
         />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={nextjsImg} alt="Next.js" class="mx-auto h-[70px] w-auto" />
+      </div>
+      <div class="carousel-item min-w-[200px] px-4">
+        <Image src={reactImg} alt="React" class="mx-auto h-[70px] w-auto" />
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .carousel-container {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(
+        calc(-200px * 7)
+      ); /* El ancho total del primer grupo */
+    }
+  }
+
+  .carousel-track {
+    animation: scroll 30s linear infinite;
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  import { $, $$ } from "../lib/dom-selector";
+
+  const track = $(".carousel-track") as HTMLElement;
+
+  if (track) {
+    // Clonar elementos para el scroll infinito
+    const items = $$(".carousel-item");
+    const itemWidth = 200;
+    const totalItems = items.length;
+
+    let isTransitioning = false;
+
+    const resetPosition = () => {
+      isTransitioning = true;
+      track.style.transition = "none";
+      track.style.transform = "translateX(0)";
+      void track.offsetWidth; // Forzar reflow
+      track.style.transition = "transform 30s linear infinite";
+      isTransitioning = false;
+    };
+
+    // Observer para detectar cuando el último elemento es visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isTransitioning) {
+            resetPosition();
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 1.0,
+      }
+    );
+
+    // Observar el último elemento
+    const lastItem = items[items.length - 1];
+    if (lastItem) {
+      observer.observe(lastItem);
+    }
+
+    // Iniciar animación
+    track.style.transform = `translateX(0)`;
+  }
+</script>

@@ -12,200 +12,301 @@ import imgContact from "../../public/assets/img/webp/img_contact.webp";
 
 <div
   id={id}
-  class="fixed hidden inset-0 items-center justify-center z-10 mx-5 md:mx-0"
+  class="fixed hidden inset-0 z-50 transform transition-all duration-300 ease-in-out"
 >
-  <div class="relative w-full max-w-[700px] max-h-full">
-    <div class="relative bg-white rounded-lg shadow w-full">
-      <div class="flex items-center justify-between p-5">
-        <h3 class="text-lg font-semibold text-gray-900">
-          CONTÁCTATE CON NOSOTROS
-        </h3>
-        <button
-          type="button"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-          data-modal-toggle="crud-modal"
-          id={idClose}
-        >
-          <svg
-            class="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
-          </svg>
-          <span class="sr-only">Close modal</span>
-        </button>
-      </div>
-      <div class="w-full flex flex-col md:flex-row p-5">
-        <form class="p-4 md:p-5 w-full md:w-1/2 space-y-5">
-          <div class="col-span-2">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900">Nombre</label
-            >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              autocomplete={"true"}
-              class="bg-[#FCFCFC] border border-black text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-              placeholder=""
-              required={true}
-            />
-          </div>
-          <div class="col-span-2">
-            <label
-              for="email"
-              class="block mb-2 text-sm font-medium text-gray-900">Correo</label
-            >
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="bg-[#FCFCFC] border border-black text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-              placeholder=""
-              required={true}
-            />
-          </div>
-          <div class="col-span-2">
-            <label
-              for="message"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Mensaje</label
-            >
-            <textarea
-              id="message"
-              rows="4"
-              class="block p-2.5 w-full text-sm text-gray-900 bg-[#FCFCFC] rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500"
-              placeholder=""
-              required={true}></textarea>
-            <h3 class="text-sm truncate mt-2 text-gray-400">
-              Te responderemos al correo que nos dejes
-            </h3>
-          </div>
-          <button
-            type="submit"
-            class="text-white mt-5 w-[200px] inline-flex items-center justify-center bg-[#8647EA] hover:bg-[#6d34c7] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center"
-          >
-            Enviar
-          </button>
-        </form>
-        <div class="md:flex hidden items-center justify-center">
-          <Image
-            src={imgContact}
-            alt={"Contacta a 1nLines"}
-            class={"w-[271px] md:w-[280px]"}
-          />
-        </div>
-      </div>
-      <div
-        class="flex flex-col space-y-2 justify-center items-center pt-5 pb-8"
-      >
-        <h4>O comunícate a nuestras líneas de atención</h4>
-        <a
-          href="https://api.whatsapp.com/send?phone=573249804916&text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Inlines"
-          class="flex"
-          target="_blank"
-        >
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 34 34"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <rect width="34" height="34" fill="url(#pattern0)"></rect>
-            <defs>
-              <pattern
-                id="pattern0"
-                patternContentUnits="objectBoundingBox"
-                width="1"
-                height="1"
-              >
-                <use xlink:href="#image0_50_149" transform="scale(0.0104167)"
-                ></use>
-              </pattern>
-              <image
-                id="image0_50_149"
-                width="96"
-                height="96"
-                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAACKUlEQVR4nO2dPU6cYQyE3US5ComUU638bLUnSbKCBs6SFFwCcpD8dAGBPmkrCkBIaGy/M5L7mWfW/rZ7IxYX8PDcqP2NFy5AKxcglgsQywWI5QLEcgFiLVcA8AW4AG6Bfy8BUE9M0eFw+AhcZua9GiqrFXCCf62GyaoFZOaVGiSrFrDd/G5nh2EFXFQAyaoFZOYvNUQWL+CvGiIrF1A9IMX9jQ9IcX/jA1Lc3/iAFPc3PiDF/Y0PSHF/4wNS3N/4gBT3Nz4gxf2ND0hxf+MDUtzf+IAU9zc+IMX9jQ9IcX/jA1Lc3/iAFPc3PiDF/Y0PSHF/4wNS3N/4gBT3Nz4gxf2ND0hxf+MDUtzf+IAU9/fuASk+0V1qgLgAPUS8AXqQ+AT1nOguNUBcgB4i3gA9SHyCek50lxogLkAPEW+AHiQ+QT0nuksNEBegh4g3QA8Sn6CeE92lBogL0EPEG6AHiU9Qz4nuUgPEBegh4g3Qg8QnqOdEd6kB4gL0EPEG6EHiE9RzorvUAHEBeoh4A/Qg8QnqOdFdaoC4AD1EvAF6kPgE9ZzoLjVAXIAeIt4APUh8gnpOdJcaIC5ADxFvgB4kC5+gP2qIvHEy83d01+nRzq4F3ER3AUc1SN4+X6O79vv9Z+Cu4a//P3AWE9T0OcNjTBHwITN/FoD68Mr5sXmOSdoCAeen1a58do7j4D/9JmTm9+0fRhZ4Z3LzsHkBvu12u09qPpZlWVYso0d4PDfOKpVifwAAAABJRU5ErkJggg=="
-              />
-            </defs>
-          </svg>
-          <h4 class="text-black text-[16px] font-[400]">+57 324 9804916</h4>
-        </a>
-        <a href="mailto:comercial@inlines.com.co" class="flex space-x-2">
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 28 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M25.2 0H2.8C1.26 0 0.014 1.2375 0.014 2.75L0 19.25C0 20.7625 1.26 22 2.8 22H25.2C26.74 22 28 20.7625 28 19.25V2.75C28 1.2375 26.74 0 25.2 0ZM25.2 5.5L14 12.375L2.8 5.5V2.75L14 9.625L25.2 2.75V5.5Z"
-              fill="#666666"></path>
-          </svg>
+  <!-- Overlay con fade -->
+  <div
+    class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out modal-backdrop"
+  >
+  </div>
 
-          <h4 class="text-black text-[16px] font-[400]">
-            comercial@inlines.com.co
-          </h4>
-        </a>
+  <!-- Container del Modal -->
+  <div class="fixed inset-0 z-50 overflow-y-auto">
+    <div class="flex min-h-full items-center justify-center p-4 text-center">
+      <!-- Modal Content con slide y fade -->
+      <div
+        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all duration-300 ease-in-out opacity-0 translate-y-4 sm:translate-y-0 modal-content w-full max-w-[700px]"
+      >
+        <div class="flex items-center justify-between p-5">
+          <h3 class="text-lg font-semibold text-gray-900">
+            CONTÁCTATE CON NOSOTROS
+          </h3>
+          <button
+            type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+            id={idClose}
+          >
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+        <div class="w-full flex flex-col md:flex-row p-5">
+          <form class="p-4 md:p-5 w-full md:w-1/2 space-y-5">
+            <div class="col-span-2">
+              <label
+                for="name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Nombre</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="name"
+                autocomplete="name"
+                class="bg-[#FCFCFC] border border-black text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                placeholder=""
+                required={true}
+              />
+            </div>
+            <div class="col-span-2">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Correo</label
+              >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="bg-[#FCFCFC] border border-black text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                placeholder=""
+                required={true}
+              />
+            </div>
+            <div class="col-span-2">
+              <label
+                for="message"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Mensaje</label
+              >
+              <textarea
+                id="message"
+                rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-[#FCFCFC] rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500 min-h-[100px] max-h-[200px] resize-y"
+                placeholder=""
+                required={true}></textarea>
+              <h3 class="text-sm truncate mt-2 text-gray-400">
+                Te responderemos al correo que nos dejes
+              </h3>
+            </div>
+            <button
+              type="submit"
+              class="text-white mt-5 w-[200px] inline-flex items-center justify-center bg-[#8647EA] hover:bg-[#6d34c7] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="md:flex hidden items-center justify-center">
+            <Image
+              src={imgContact}
+              alt={"Contacta a 1nLines"}
+              class={"w-[271px] md:w-[280px]"}
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col space-y-2 justify-center items-center pt-5 pb-8"
+        >
+          <h4>O comunícate a nuestras líneas de atención</h4>
+          <a
+            href="https://api.whatsapp.com/send?phone=573249804916&text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Inlines"
+            class="flex"
+            target="_blank"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 34 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <rect width="34" height="34" fill="url(#pattern0)"></rect>
+              <defs>
+                <pattern
+                  id="pattern0"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use xlink:href="#image0_50_149" transform="scale(0.0104167)"
+                  ></use>
+                </pattern>
+                <image
+                  id="image0_50_149"
+                  width="96"
+                  height="96"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAACKUlEQVR4nO2dPU6cYQyE3US5ComUU638bLUnSbKCBs6SFFwCcpD8dAGBPmkrCkBIaGy/M5L7mWfW/rZ7IxYX8PDcqP2NFy5AKxcglgsQywWI5QLEcgFiLVcA8AW4AG6Bfy8BUE9M0eFw+AhcZua9GiqrFXCCf62GyaoFZOaVGiSrFrDd/G5nh2EFXFQAyaoFZOYvNUQWL+CvGiIrF1A9IMX9jQ9IcX/jA1Lc3/iAFPc3PiDF/Y0PSHF/4wNS3N/4gBT3Nz4gxf2ND0hxf+MDUtzf+IAU9zc+IMX9jQ9IcX/jA1Lc3/iAFPc3PiDF/Y0PSHF/4wNS3N/4gBT3Nz4gxf2ND0hxf+MDUtzf+IAU9/fuASk+0V1qgLgAPUS8AXqQ+AT1nOguNUBcgB4i3gA9SHyCek50lxogLkAPEW+AHiQ+QT0nuksNEBegh4g3QA8Sn6CeE92lBogL0EPEG6AHiU9Qz4nuUgPEBegh4g3Qg8QnqOdEd6kB4gL0EPEG6EHiE9RzorvUAHEBeoh4A/Qg8QnqOdFdaoC4AD1EvAF6kPgE9ZzoLjVAXIAeIt4APUh8gnpOdJcaIC5ADxFvgB4kC5+gP2qIvHEy83d01+nRzq4F3ER3AUc1SN4+X6O79vv9Z+Cu4a//P3AWE9T0OcNjTBHwITN/FoD68Mr5sXmOSdoCAeen1a58do7j4D/9JmTm9+0fRhZ4Z3LzsHkBvu12u09qPpZlWVYso0d4PDfOKpVifwAAAABJRU5ErkJggg=="
+                />
+              </defs>
+            </svg>
+            <h4 class="text-black text-[16px] font-[400]">+57 324 9804916</h4>
+          </a>
+          <a href="mailto:comercial@inlines.com.co" class="flex space-x-2">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 28 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M25.2 0H2.8C1.26 0 0.014 1.2375 0.014 2.75L0 19.25C0 20.7625 1.26 22 2.8 22H25.2C26.74 22 28 20.7625 28 19.25V2.75C28 1.2375 26.74 0 25.2 0ZM25.2 5.5L14 12.375L2.8 5.5V2.75L14 9.625L25.2 2.75V5.5Z"
+                fill="#666666"></path>
+            </svg>
+
+            <h4 class="text-black text-[16px] font-[400]">
+              comercial@inlines.com.co
+            </h4>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<div
+  id="success-message-contactate"
+  class="opacity-0 pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300"
+>
+  <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm mx-4">
+    <div class="text-center">
+      <svg
+        class="mx-auto mb-4 text-green-500 w-12 h-12"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 13l4 4L19 7"></path>
+      </svg>
+      <h3 class="mb-5 text-lg font-semibold text-gray-900">
+        Mensaje enviado correctamente
+      </h3>
+      <p class="text-gray-600 mb-5">
+        Te responderemos pronto al correo proporcionado
+      </p>
+      <button
+        type="button"
+        class="text-white bg-[#8647EA] hover:bg-[#6d34c7] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        id="close-success-message-contactate"
+      >
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
+  import { $ } from "../lib/dom-selector";
+
   document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+    const form = $<HTMLFormElement>("#id-contactate-con-nosotros form");
+    const successMessage = $("#success-message-contactate");
+    const closeSuccessButton = $("#close-success-message-contactate");
 
-    if (form) {
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const nameInput = document.getElementById("name") as HTMLInputElement;
-        const emailInput = document.getElementById("email") as HTMLInputElement;
-        const messageTextarea = document.getElementById(
-          "message",
-        ) as HTMLTextAreaElement;
-
-        const name = nameInput.value;
-        const email = emailInput.value;
-        const message = messageTextarea.value;
-
-        console.log("Nombre:", name);
-        console.log("Correo:", email);
-        console.log("Mensaje:", message);
-
-        // Agregar la clase "hidden" al elemento con id "id-contacto"
-        const contactoElement = document.getElementById("id-contacto");
-        const bodyElement = document.getElementById("body-page");
+    // Manejador para cerrar el mensaje de éxito
+    if (closeSuccessButton && successMessage) {
+      closeSuccessButton.addEventListener("click", () => {
+        successMessage.classList.add("opacity-0", "pointer-events-none");
+        
+        // Cerrar el modal principal también
+        const contactoElement = $("#id-contactate-con-nosotros");
+        const bodyElement = $("#body-page");
         if (contactoElement && bodyElement) {
           contactoElement.classList.remove("flex");
           contactoElement.classList.add("hidden");
-
           bodyElement.classList.remove("overflow-hidden");
           bodyElement.classList.add("overflow-auto");
+        }
+      });
+    }
 
-          alert("Mensaje enviado correctamente - simulación de aviso");
-        } else {
-          console.error("Error al obtener el elemento con id 'id-contacto'");
+    if (form) {
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const nameInput = $<HTMLInputElement>("#name", form);
+        const emailInput = $<HTMLInputElement>("#email", form);
+        const messageTextarea = $<HTMLTextAreaElement>("#message", form);
+
+        if (!nameInput || !emailInput || !messageTextarea) {
+          console.error("No se encontraron todos los campos del formulario");
+          return;
+        }
+
+        const formData = {
+          name: nameInput.value,
+          email: emailInput.value,
+          message: messageTextarea.value,
+          formType: "contactate",
+        };
+
+        try {
+          const response = await fetch("/api/send-email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const data = await response.json();
+          console.log("Respuesta del servidor:", data);
+
+          if (response.ok) {
+            // Mostrar mensaje de éxito usando opacity
+            if (successMessage) {
+              successMessage.classList.remove("opacity-0", "pointer-events-none");
+            }
+
+            // Limpiar el formulario
+            form.reset();
+            console.log("Formulario limpiado");
+          } else {
+            throw new Error(data.message || "Error al enviar el mensaje");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error al enviar el mensaje. Por favor, intenta nuevamente.");
         }
       });
     } else {
-      console.error("Error al obtener el formulario de contacto");
+      console.error("No se encontró el formulario de Contáctate con nosotros");
     }
   });
 </script>
 
-<style></style>
+<style>
+  /* Estilos para el modal activo */
+  .modal-active .modal-backdrop {
+    opacity: 0.5;
+  }
+
+  .modal-active .modal-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animación para el mensaje de éxito */
+  #success-message-contactate {
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>

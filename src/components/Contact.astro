@@ -31,17 +31,17 @@ import contact from "../../public/assets/img/webp/contact.webp";
     <div class="w-full md:w-2/3">
       <div class="w-full flex flex-col space-y-5">
         <button
-          id="id-contactate-con-nosotros"
+          id="btn-contactate-con-nosotros"
           class="md:text-[36px] text-[18px] bg-[#8647EA] hover:bg-[#753bd1] font-semibold shadow-sm text-right text-white px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
         >
           Contáctate con nosotros
-      </button>
-      <button
-        id="id-dejanos-contactarte"
-        class="md:text-[36px] text-[18px] bg-[#FAFAF7] hover:bg-[#dedede] font-semibold text-[#8647EA] shadow-sm text-left px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
-      >
-        Déjanos contactarte
-      </button>
+        </button>
+        <button
+          id="btn-dejanos-contactarte"
+          class="md:text-[36px] text-[18px] bg-[#FAFAF7] hover:bg-[#dedede] font-semibold text-[#8647EA] shadow-sm text-left px-2 md:px-7 py-2 md:py-4 transition duration-300 ease-in-out"
+        >
+          Déjanos contactarte
+        </button>
       </div>
     </div>
   </div>
@@ -118,13 +118,23 @@ import contact from "../../public/assets/img/webp/contact.webp";
 
   const toggleModal = (modalId: string, show: boolean) => {
     const modalElement = $(`#${modalId}`)
-    const bodyElement = $('#body-page')
+    const bodyElement = $('body')
     
     if (modalElement && bodyElement) {
-      modalElement.classList.toggle('flex', show)
-      modalElement.classList.toggle('hidden', !show)
-      bodyElement.classList.toggle('overflow-hidden', show)
-      bodyElement.classList.toggle('overflow-auto', !show)
+      if (show) {
+        modalElement.classList.remove('hidden')
+        // Forzar un reflow para que la transición funcione
+        void modalElement.offsetHeight
+        modalElement.classList.add('modal-active')
+        bodyElement.classList.add('overflow-hidden')
+      } else {
+        modalElement.classList.remove('modal-active')
+        bodyElement.classList.remove('overflow-hidden')
+        // Esperar a que termine la animación antes de ocultar
+        setTimeout(() => {
+          modalElement.classList.add('hidden')
+        }, 300)
+      }
     }
   }
 
@@ -138,11 +148,20 @@ import contact from "../../public/assets/img/webp/contact.webp";
   })
 
   // Event listeners para abrir modales
-  $('#btn-contactate-con-nosotros')?.addEventListener("click", () => {
+  $('button#btn-contactate-con-nosotros')?.addEventListener("click", () => {
     toggleModal('id-contactate-con-nosotros', true)
   })
 
-  $('#btn-dejanos-contactarte')?.addEventListener("click", () => {
+  $('button#btn-dejanos-contactarte')?.addEventListener("click", () => {
     toggleModal('id-dejanos-contactarte', true)
+  })
+
+  // Cerrar modal al hacer click en el overlay
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
+    if (target.classList.contains('modal-backdrop')) {
+      toggleModal('id-contactate-con-nosotros', false)
+      toggleModal('id-dejanos-contactarte', false)
+    }
   })
 </script>
