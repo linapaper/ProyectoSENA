@@ -114,73 +114,35 @@ import contact from "../../public/assets/img/webp/contact.webp";
 </style>
 
 <script>
-  const $closeModalConstacto = document.querySelector("#id-close-contactate");
-  const $closeModalDejanos = document.querySelector("#id-dejanos");
+  import { $ } from '../lib/dom-selector'
 
-  const $buttonContactateConNosotros = document.querySelector(
-    "#btn-contactate-con-nosotros",
-  );
-  const $buttonDejanosContactarte = document.querySelector(
-    "#btn-dejanos-contactarte",
-  );
-
-  $closeModalConstacto?.addEventListener("click", async (_) => {
-    const contactoElement = document.getElementById("id-contactate-con-nosotros");
-    const bodyElement = document.getElementById("body-page");
-    if (contactoElement && bodyElement) {
-      contactoElement.classList.remove("flex");
-      contactoElement.classList.add("hidden");
-
-      bodyElement.classList.add("overflow-auto");
-      bodyElement.classList.remove("overflow-hidden");
-    } else {
-      console.error("Error al obtener el elemento con id 'id-contacto'");
+  const toggleModal = (modalId: string, show: boolean) => {
+    const modalElement = $(`#${modalId}`)
+    const bodyElement = $('#body-page')
+    
+    if (modalElement && bodyElement) {
+      modalElement.classList.toggle('flex', show)
+      modalElement.classList.toggle('hidden', !show)
+      bodyElement.classList.toggle('overflow-hidden', show)
+      bodyElement.classList.toggle('overflow-auto', !show)
     }
-  });
+  }
 
-  $closeModalDejanos?.addEventListener("click", async (_) => {
-    const contactoElement = document.getElementById("id-dejanos-contactarte");
-    const bodyElement = document.getElementById("body-page");
-    if (contactoElement && bodyElement) {
-      contactoElement.classList.remove("flex");
-      contactoElement.classList.add("hidden");
+  // Event listeners para cerrar modales
+  $('#id-close-contactate')?.addEventListener("click", () => {
+    toggleModal('id-contactate-con-nosotros', false)
+  })
 
-      bodyElement.classList.add("overflow-auto");
-      bodyElement.classList.remove("overflow-hidden");
-    } else {
-      console.error("Error al obtener el elemento con id 'id-contacto'");
-    }
-  });
+  $('#id-dejanos')?.addEventListener("click", () => {
+    toggleModal('id-dejanos-contactarte', false)
+  })
 
-  $buttonContactateConNosotros?.addEventListener("click", async (_) => {
-    const contactoElement = document.getElementById(
-      "id-contactate-con-nosotros",
-    );
-    const bodyElement = document.getElementById("body-page");
-    if (contactoElement && bodyElement) {
-      contactoElement.classList.add("flex");
-      contactoElement.classList.remove("hidden");
+  // Event listeners para abrir modales
+  $('#btn-contactate-con-nosotros')?.addEventListener("click", () => {
+    toggleModal('id-contactate-con-nosotros', true)
+  })
 
-      bodyElement.classList.add("overflow-hidden");
-      bodyElement.classList.remove("overflow-auto");
-    } else {
-      console.error(
-        "Error al obtener el elemento con id 'id-contactate-con-nosotros'",
-      );
-    }
-  });
-
-  $buttonDejanosContactarte?.addEventListener("click", async (_) => {
-    const contactoElement = document.getElementById("id-dejanos-contactarte");
-    const bodyElement = document.getElementById("body-page");
-    if (contactoElement && bodyElement) {
-      contactoElement.classList.add("flex");
-      contactoElement.classList.remove("hidden");
-
-      bodyElement.classList.add("overflow-hidden");
-      bodyElement.classList.remove("overflow-auto");
-    } else {
-      console.error("Error al obtener el elemento con id 'id-contacto'");
-    }
-  });
+  $('#btn-dejanos-contactarte')?.addEventListener("click", () => {
+    toggleModal('id-dejanos-contactarte', true)
+  })
 </script>
