@@ -153,28 +153,31 @@ import imgContact from "../../public/assets/img/webp/img_dejanos.webp";
           </form>
 
           <!-- mensaje oculto para que cuando se envie el formulario se muestre -->
-          <div 
-            id="success-message" 
+          <div
+            id="success-message"
             class="opacity-0 pointer-events-none fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300"
           >
             <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm mx-4">
               <div class="text-center">
-                <svg 
-                  class="mx-auto mb-4 text-green-500 w-12 h-12" 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  class="mx-auto mb-4 text-green-500 w-12 h-12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    stroke-width="2" 
-                    d="M5 13l4 4L19 7"
-                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <h3 class="mb-5 text-lg font-semibold text-gray-900">Mensaje enviado correctamente</h3>
-                <p class="text-gray-600 mb-5">Nuestros asesores se pondrán en contacto contigo pronto</p>
+                <h3 class="mb-5 text-lg font-semibold text-gray-900">
+                  Mensaje enviado correctamente
+                </h3>
+                <p class="text-gray-600 mb-5">
+                  Nuestros asesores se pondrán en contacto contigo pronto
+                </p>
                 <button
                   type="button"
                   class="text-white bg-[#8647EA] hover:bg-[#6d34c7] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -239,7 +242,7 @@ import imgContact from "../../public/assets/img/webp/img_dejanos.webp";
       closeSuccessButton.addEventListener("click", () => {
         // En lugar de usar hidden, manejamos con opacity y pointer-events
         successMessage.classList.add("opacity-0", "pointer-events-none");
-        
+
         // Cerrar el modal principal también
         const dejanosElement = $("#id-dejanos-contactarte");
         const bodyElement = $("#body-page");
@@ -259,9 +262,17 @@ import imgContact from "../../public/assets/img/webp/img_dejanos.webp";
         const nameInput = $<HTMLInputElement>("#name", form);
         const emailInput = $<HTMLInputElement>("#email", form);
         const cellphoneInput = $<HTMLInputElement>("#cellphone", form);
-        const contactMethodSelect = $<HTMLSelectElement>("#contactMethod", form);
+        const contactMethodSelect = $<HTMLSelectElement>(
+          "#contactMethod",
+          form
+        );
 
-        if (!nameInput || !emailInput || !cellphoneInput || !contactMethodSelect) {
+        if (
+          !nameInput ||
+          !emailInput ||
+          !cellphoneInput ||
+          !contactMethodSelect
+        ) {
           console.error("No se encontraron todos los campos del formulario");
           return;
         }
@@ -289,9 +300,12 @@ import imgContact from "../../public/assets/img/webp/img_dejanos.webp";
           if (response.ok) {
             // Mostrar mensaje de éxito usando opacity
             if (successMessage) {
-              successMessage.classList.remove("opacity-0", "pointer-events-none");
+              successMessage.classList.remove(
+                "opacity-0",
+                "pointer-events-none"
+              );
             }
-            
+
             // Limpiar el formulario
             form.reset();
             console.log("Formulario limpiado");
@@ -299,7 +313,7 @@ import imgContact from "../../public/assets/img/webp/img_dejanos.webp";
             throw new Error(data.message || "Error al enviar el mensaje");
           }
         } catch (error) {
-          console.error('Error:', error);
+          console.error("Error:", error);
           alert("Error al enviar el mensaje. Por favor, intenta nuevamente.");
         }
       });
