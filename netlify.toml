@@ -7,11 +7,9 @@
   node_bundler = "esbuild"
   included_files = ["dist/**/*"]
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/entry"
-  status = 200
-  force = true
+[[edge_functions]]
+  function = "entry"
+  path = "/*"
 
 [dev]
   command = "npm run dev"
@@ -19,8 +17,3 @@
 
 [context.production]
   environment = { NODE_VERSION = "18" }
-
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
