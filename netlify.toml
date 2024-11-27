@@ -7,9 +7,11 @@
   node_bundler = "esbuild"
   included_files = ["dist/**/*"]
 
-[[edge_functions]]
-  function = "entry"
-  path = "/*"
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/entry"
+  status = 200
+  force = true
 
 [dev]
   command = "npm run dev"
