@@ -2,6 +2,7 @@
   "name": "astro-landing-page",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "node ./envValidator.js && astro dev",
     "start": "node ./envValidator.js && astro dev",
@@ -23,6 +24,8 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.17"
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1"
   }
 }
