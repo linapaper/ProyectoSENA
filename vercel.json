@@ -4,16 +4,10 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/api/send-email",
-      "destination": "/api/send-email"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     }
   ],
-  "functions": {
-    "api/send-email.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",

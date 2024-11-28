@@ -1,18 +1,12 @@
 import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 
-export const config = {
-  runtime: 'edge',
-  regions: ['iad1'], // US East (N. Virginia)
-};
+// Removemos la config de edge runtime por ahora
+// export const config = {
+//   runtime: 'edge',
+//   regions: ['iad1'],
+// };
 
-// Definir interface para el error de NodeMailer
-interface NodemailerError extends Error {
-  code?: string;
-  command?: string;
-}
-
-// Configuración común del transporter
 const createTransporter = () => {
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.MAIL_HOST) {
     throw new Error('Missing email configuration environment variables');
@@ -29,38 +23,25 @@ const createTransporter = () => {
   });
 };
 
-// Endpoint para el formulario "Contáctate con nosotros"
 export const POST: APIRoute = async ({ request }) => {
   try {
-    console.log('🚀 Iniciando proceso de envío de email...');
-
+    console.log('🚀 Request recibido en:', request.url);
     const data = await request.json();
+    console.log('📦 Datos recibidos:', data);
+
     const { formType = 'contactate', ...formData } = data;
 
-    // Usar el formType para determinar qué tipo de correo enviar
     if (formType === 'dejanos-contactarte') {
       return handleDejanosContactarte(formData);
     } else {
       return handleContactate(formData);
     }
   } catch (error) {
-    const err = error as NodemailerError;
-    console.error('❌ Error detallado al enviar el email:', {
-      name: err.name,
-      message: err.message,
-      stack: err.stack,
-      code: err.code,
-      command: err.command
-    });
-
+    console.error('❌ Error:', error);
     return new Response(
       JSON.stringify({
         message: "Error al enviar el email",
-        error: {
-          name: err.name,
-          message: err.message,
-          code: err.code
-        }
+        error: error instanceof Error ? error.message : 'Unknown error'
       }),
       {
         status: 500,
