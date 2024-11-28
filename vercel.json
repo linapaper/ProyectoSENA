@@ -8,11 +8,6 @@
       "destination": "/api/$1"
     }
   ],
-  "functions": {
-    "api/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
