@@ -1,51 +1,228 @@
 ---
 interface Props {
-	title: string;
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Somos un equipo de talento tech especializado en transformar ideas innovadoras en soluciones digitales. Expertos en desarrollo web, diseño UX/UI y soluciones tecnológicas personalizadas.",
+  image = "https://www.inlines.com.co/_astro/logo_inlines.CrQ0LVV7.webp",
+  canonicalURL = Astro.url,
+} = Astro.props;
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "TechnologyCompany",
+    name: "Inlines",
+    url: "https://inlines.com.co",
+    logo: "https://www.inlines.com.co/_astro/logo_inlines.CrQ0LVV7.webp",
+    description: description,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+57-316-244-9249",
+      contactType: "customer service",
+      availableLanguage: ["Spanish", "English"],
+    },
+    sameAs: ["https://wa.me/573162449249"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "¿Qué servicios ofrece Inlines?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Inlines ofrece servicios de desarrollo web, diseño UX/UI, desarrollo de software personalizado y soluciones tecnológicas innovadoras para empresas.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "¿Dónde está ubicada Inlines?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Inlines está ubicada en Bogotá, Colombia, pero trabajamos con clientes de todo el país y a nivel internacional.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "¿Cómo puedo contactar a Inlines?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Puedes contactarnos a través de WhatsApp al +57 316 244 9249 o mediante el formulario de contacto en nuestra página web.",
+        },
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Desarrollo Web",
+    provider: {
+      "@type": "TechnologyCompany",
+      name: "Inlines",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Colombia",
+    },
+    description:
+      "Desarrollo de sitios web y aplicaciones web personalizadas con las últimas tecnologías",
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      areaServed: "CO",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Inlines",
+    url: "https://inlines.com.co",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://inlines.com.co/search?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="En Inlines nos encanta pensar en las mejores propuestas para tu idea creativa o de mejora y apoyarte a hacerlas realidad." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body id="body-page">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Inlines - Soluciones Digitales Innovadoras</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#8647EA" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Inlines`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="es_CO" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={`${title} | Inlines`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Inlines" />
+    <meta
+      name="keywords"
+      content="desarrollo web, diseño web, UX/UI, soluciones tecnológicas, desarrollo de software, colombia, bogotá, transformación digital, innovación tecnológica"
+    />
+    <meta name="geo.region" content="CO" />
+    <meta name="geo.placename" content="Bogotá" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta name="rating" content="General" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="target" content="all" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:site_name" content="Inlines" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <meta name="google-site-verification" content="TU-CÓDIGO-DE-GOOGLE" />
+    <meta name="msvalidate.01" content="TU-CÓDIGO-DE-BING" />
+
+    <link
+      rel="alternate"
+      media="only screen and (max-width: 640px)"
+      href={canonicalURL}
+    />
+
+    <link rel="preload" as="image" href={image} type="image/webp" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-control" content="public" />
+
+    <meta name="application-name" content="Inlines" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Inlines" />
+  </head>
+  <body id="body-page">
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #fff;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #fff;
+    background-size: 224px;
+    scroll-behavior: smooth;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+
+  :focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>

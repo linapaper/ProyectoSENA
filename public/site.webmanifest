@@ -1,0 +1,22 @@
+{
+  "name": "Inlines - Soluciones Digitales Innovadoras",
+  "short_name": "Inlines",
+  "description": "Equipo de talento tech especializado en transformar ideas innovadoras en soluciones digitales.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#8647EA",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait"
+}
