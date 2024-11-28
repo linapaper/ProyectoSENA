@@ -62,22 +62,22 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Desarrollo Web",
-    provider: {
+    "name": "Desarrollo de Software Empresarial",
+    "serviceType": ["Software Development", "Enterprise Solutions"],
+    "provider": {
       "@type": "TechnologyCompany",
-      name: "Inlines",
+      "name": "Inlines"
     },
-    areaServed: {
+    "description": "Desarrollo de software empresarial personalizado en Colombia. Soluciones tecnológicas a medida para empresas, integraciones de sistemas y automatización de procesos.",
+    "areaServed": {
       "@type": "Country",
-      name: "Colombia",
+      "name": "Colombia"
     },
-    description:
-      "Desarrollo de sitios web y aplicaciones web personalizadas con las últimas tecnologías",
-    offers: {
+    "offers": {
       "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      areaServed: "CO",
-    },
+      "availability": "https://schema.org/InStock",
+      "areaServed": "CO"
+    }
   },
   {
     "@context": "https://schema.org",
@@ -94,6 +94,80 @@ const schema = [
     },
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta desarrollar software empresarial en Colombia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El costo del desarrollo de software empresarial en Colombia varía según varios factores: complejidad del proyecto, funcionalidades requeridas, integraciones necesarias y plazo de entrega. En Inlines ofrecemos soluciones desde $15 millones para proyectos básicos hasta $100+ millones para sistemas empresariales completos. Contacta con nosotros para recibir una cotización personalizada según tus necesidades específicas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo toma desarrollar un software empresarial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El desarrollo de software empresarial típicamente toma entre 3 y 8 meses, dependiendo de la complejidad. Proyectos pequeños pueden completarse en 2-3 meses, mientras que sistemas más complejos pueden requerir 6-12 meses. En Inlines utilizamos metodologías ágiles para entregar resultados incrementales y valor desde las primeras semanas del proyecto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipos de software empresarial desarrolla Inlines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desarrollamos diversos tipos de software empresarial incluyendo: ERPs personalizados, CRMs, sistemas de gestión de inventarios, software de facturación, plataformas de e-commerce B2B, sistemas de gestión de recursos humanos, y soluciones de automatización de procesos empresariales. Cada solución se adapta a las necesidades específicas de tu empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué elegir Inlines para el desarrollo de software empresarial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inlines destaca por: 1) Experiencia comprobada en desarrollo de software empresarial, 2) Equipo de desarrolladores senior especializados, 3) Metodologías ágiles que garantizan entregas continuas, 4) Soporte técnico 24/7, 5) Tecnologías modernas y escalables, 6) Casos de éxito en diversos sectores empresariales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tecnologías utiliza Inlines para el desarrollo de software empresarial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Utilizamos tecnologías modernas y probadas como React, Node.js, Python, y bases de datos SQL y NoSQL. Para aplicaciones empresariales, implementamos arquitecturas escalables en la nube usando AWS o Azure, asegurando alta disponibilidad y rendimiento. Todas nuestras soluciones incluyen integración continua y despliegue automatizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Ofrecen mantenimiento y soporte después del desarrollo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, ofrecemos planes de mantenimiento y soporte post-desarrollo que incluyen: actualizaciones de seguridad, optimizaciones de rendimiento, copias de seguridad, monitoreo 24/7, soporte técnico prioritario y nuevas funcionalidades según necesidades. Nuestros planes se adaptan al tamaño y necesidades de cada empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El software empresarial desarrollado por Inlines es personalizable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, todo nuestro software empresarial es 100% personalizable. Desarrollamos soluciones a medida que se adaptan exactamente a tus procesos de negocio, integrándose con tus sistemas existentes y escalando según tus necesidades. Además, puedes solicitar modificaciones y nuevas funcionalidades en cualquier momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo es el proceso de desarrollo de software empresarial en Inlines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nuestro proceso incluye: 1) Análisis inicial y levantamiento de requerimientos, 2) Diseño de la arquitectura y prototipos, 3) Desarrollo iterativo con entregas cada 2 semanas, 4) Pruebas continuas y control de calidad, 5) Implementación y capacitación, 6) Soporte post-implementación. Mantenemos comunicación constante durante todo el proceso."
+      }
+    }
+  ]
+};
+
+schema.push(faqSchema);
+
 ---
 
 <!doctype html>
