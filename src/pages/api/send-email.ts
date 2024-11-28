@@ -1,6 +1,11 @@
 import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 
+export const config = {
+  runtime: 'edge',
+  regions: ['iad1'], // US East (N. Virginia)
+};
+
 // Definir interface para el error de NodeMailer
 interface NodemailerError extends Error {
   code?: string;
@@ -9,16 +14,18 @@ interface NodemailerError extends Error {
 
 // Configuración común del transporter
 const createTransporter = () => {
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.MAIL_HOST) {
+    throw new Error('Missing email configuration environment variables');
+  }
+
   return nodemailer.createTransport({
     port: 465,
-    host: import.meta.env.MAIL_HOST,
+    host: process.env.MAIL_HOST,
     auth: {
-      user: import.meta.env.EMAIL_USER,
-      pass: import.meta.env.EMAIL_PASS,
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
     secure: true,
-    debug: true,
-    logger: true
   });
 };
 
