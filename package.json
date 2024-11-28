@@ -2,6 +2,9 @@
   "name": "astro-landing-page",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "18.x"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "node ./envValidator.js && astro dev",
